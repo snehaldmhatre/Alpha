@@ -4,10 +4,10 @@ metadata:
   name: nginx-pod
   labels:
     app: nginx
-    env: dev
+    env: pod
 spec:
   containers:
-    - name: nginx
+    - name: nginx-container
       image: nginx:latest
       ports:
         - containerPort: 80
@@ -15,7 +15,7 @@ spec:
         requests:
           cpu: "600m"
           memory: "128Mi"
-      livenessProbe:
+          livenessProbe:
         httpGet:
           path: /
           port: 80
